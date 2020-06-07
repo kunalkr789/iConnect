@@ -15,6 +15,7 @@
             <section id="user-details">
                 <% if(locals.user){ %>
                     <p>
+                        <img src="<%= user.avatar  %>" alt="<%= user.name %>" width="100">
                         <p><%= user.name %></p>
                         <p><%= user.email %></p>
                         <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
