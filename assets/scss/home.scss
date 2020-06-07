@@ -1,0 +1,20 @@
+#home-container{
+    display: flex;
+
+    #user-details{
+        width: 20%;
+        padding: 10px;
+    }
+
+    #feed-posts{
+        width: 60%;
+        padding: 10px;
+    }
+
+    #user-friends{
+        width: 20%;
+        padding: 10px;
+        border-left: 1px solid;
+        height: 100%;
+    }
+}

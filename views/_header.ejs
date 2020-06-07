@@ -9,13 +9,14 @@
         </div>
 
         <div class="search-header">
+            <% if (locals.user){ %>
             <form id="search-form" action="/user/search"  method="GET">
                 <div class="input-group search-header">
                     <input type="text" name="name" placeholder="Find People" required>
                     <button type="submit" id="searchbtn" ><i class="fa fa-search"></i></button>
                 </div>
             </form>
-            
+            <% } %>
         </div>
     
         <div class="auth-links">
@@ -24,13 +25,6 @@
                     <a href='/users/chatbot'>ChatBot </a>
                     <a href="/users/sign-out">Sign Out</a>
                    
-                </div>
-            <% }else{ %>
-                <div class="item">
-                    <a href="/users/sign-in">Sign In</a>
-                </div>
-                <div class="item">
-                    <a href="/users/sign-up">Sign Up</a>
                 </div>
             <% } %>
         </div>
