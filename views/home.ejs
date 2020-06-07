@@ -1,20 +1,23 @@
 <link rel="stylesheet" href="/css/home.css">
 
+<div id="home-container">
 <% if(!locals.user) {%>
+    <div id="welcome-text">
     <p>Welcome to iConnect. Please 
         <a href="/users/sign-in">Sign In</a>
         or
         <a href="/users/sign-up">Sign Up to continue.
     </p>
+    </div>
     <% }
     else { %>
-        <div id="home-container">
+        
             <section id="user-details">
                 <% if(locals.user){ %>
                     <p>
                         <p><%= user.name %></p>
                         <p><%= user.email %></p>
-                        <a href="/users/profile/<%= u.id %>"><%= user.name %></a>
+                        <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
                     </p>
                 <% } %>
             </section>
@@ -44,6 +47,8 @@
                     </p>
                 <% } %>
             </section>
-        </div>
+        
 
 <% } %>
+</div>
+<script src="/assets/js/home_posts.js"></script>

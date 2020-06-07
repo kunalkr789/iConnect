@@ -1,13 +1,24 @@
 #home-container {
-  display: flex; }
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: y mandatory; }
+  #home-container #welcome-text {
+    margin-top: 25px;
+    text-align: center; }
   #home-container #user-details {
     width: 20%;
-    padding: 10px; }
+    padding: 10px;
+    margin-top: 20px; }
   #home-container #feed-posts {
     width: 60%;
-    padding: 10px; }
+    padding: 10px;
+    align-items: flex-start;
+    scroll-snap-align: start;
+    margin-top: 20px; }
   #home-container #user-friends {
     width: 20%;
     padding: 10px;
     border-left: 1px solid;
-    height: 100%; }
+    height: 100%;
+    margin-top: 20px; }

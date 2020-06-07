@@ -10,11 +10,9 @@
 
         <div class="search-header">
             <% if (locals.user){ %>
-            <form id="search-form" action="/user/search"  method="GET">
-                <div class="input-group search-header">
-                    <input type="text" name="name" placeholder="Find People" required>
-                    <button type="submit" id="searchbtn" ><i class="fa fa-search"></i></button>
-                </div>
+            <form class="search" action="/user/search"  method="GET">
+                    <input type="text" name="name" class="searchTerm" placeholder="Find User" required>
+                    <button type="submit" class="searchButton" ><i class="fa fa-search"></i></button>
             </form>
             <% } %>
         </div>
