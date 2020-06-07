@@ -1,12 +1,35 @@
-<h1>
-    sign up
-</h1>
-<div class="form signup">
-<form action="/users/create" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-    <input type="submit" value="Sign Up">
-</form>
-</div>
+<!DOCTYPE html>
+<html>   
+    <head>
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="/css/index.css">
+    </head>
+
+    <body>
+    
+        <div class="form-signup">
+            <h1>Welcome to iConnect.</h1>
+            <form action="/users/create" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <input type="submit" value="Sign Up">
+            </form>
+            <p>
+                Already a member? <a href="/users/sign-in">Sign In</a>
+                <br>
+                <br>
+                <h5 style="text-align: center;">Or</h5>
+                <br>
+                Sing In with : &nbsp;
+                <a href="/login/github">
+                    <img src="/images/github.svg" alt=""/>
+                </a>&nbsp; or &nbsp;
+                <a href="/login/google">
+                    <img src="/images/google.png" alt=""/>
+                </a>
+            </p>
+        </div>   
+    </body>
+</html>
