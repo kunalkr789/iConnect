@@ -1,16 +1,43 @@
 const User = require('../models/user');
-
+const Post = require('../models/post');
 // let's keep it same as before
-module.exports.profile = function(req, res){
-    User.findById(req.params.id, function(err, user){
-        return res.render('user_profile', {
-            title: 'User Profile',
-            profile_user: user
+// module.exports.profile = function(req, res){
+//     User.findById(req.params.id, function(err, user){
+//         return res.render('user_profile', {
+//             title: 'User Profile',
+//             profile_user: user
+//         });
+//     });
+
+// }
+module.exports.profile = async function(req, res){
+
+    try{
+         // populate the user of each post
+        let posts = await Post.find({})
+        .sort('-createdAt')
+        .populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
+            }
         });
-    });
+    
+        User.findById(req.params.id, function(err, user){
+            return res.render('user_profile', {
+                title: 'User Profile',
+                profile_user: user,
+                posts: posts
+            });
+        });
 
+    }catch(err){
+        console.log('Error', err);
+        return;
+    }
+   
 }
-
 
 module.exports.update = function(req, res){
     if(req.user.id == req.params.id){

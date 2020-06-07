@@ -1,21 +1,66 @@
 <link rel="stylesheet" href="/css/user_profile.css">
+<link rel="stylesheet" href="/css/home.css">
+
 <h1>
-    Codeial / Profile Page
+    iConnect / Profile Page
 </h1>
-
-
-
 
 <% if(user.id == profile_user.id){ %>
     <!-- if user matches then show the form -->
-    <form action="/users/update/<%= profile_user.id %>" method="POST">
-        <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
-        <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
-        <input type="submit"  value="Update">
-    </form>
+    <div id="home-container">
+        <section id="user-details">
+            <form action="/users/update/<%= profile_user.id %>" method="POST">
+                <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
+                <br>
+                <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
+                <br>
+                <input type="submit"  value="Update">
+            </form>
+        </section>
+        <section id="feed-posts">
+            <h4>Posts</h4>
+            <% if(locals.user){ %>
+            <form action="/posts/create" id="new-post-form" method="POST">
+                <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
+                <input type="submit" value="Post">
+            </form>
+            <% } %>           
+            <div id="posts-list-container">
+                <ul>
+                    <% for(post of posts){ %>
+                        <% if(profile_user.id == post.user.id){ %>  
+                    <%- include('_post') -%>
+                    <% } %>  
+                    <%} %>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    
     
 <%}else{%>    
     <!-- else show only the profile info -->
-    <p><%= profile_user.name %></p>
-    <p><%= profile_user.email %></p>
+    <div id="home-container">
+        <section id="user-details">
+            <p><%= profile_user.name %></p>
+            <p><%= profile_user.email %></p>
+        </section>
+        <section id="feed-posts">
+            <h4>Posts</h4>
+                      
+            <div id="posts-list-container">
+                <ul>
+                    <% for(post of posts){ %>
+                        <% if(profile_user.id == post.user.id){ %>  
+                    <%- include('_post') -%>
+                    <% } %>  
+                    <%} %>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    
 <%} %>
+<script src="/assets/js/home_posts.js"></script>

@@ -20,7 +20,8 @@
         <div class="auth-links">
             <% if (locals.user){ %>
                 <div class="item">
-                    <a href='/users/chatbot'>ChatBot </a>
+                    <a href='/users/profile/<%= user.id %>'><%= user.name %> </a>&nbsp;
+                    <a href='/users/chatbot'>Messenger </a>&nbsp;
                     <a href="/users/sign-out">Sign Out</a>
                    
                 </div>

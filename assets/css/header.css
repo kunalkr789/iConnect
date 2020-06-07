@@ -8,7 +8,7 @@
   box-shadow: 1px 1px 1px 1px lightgrey;
   width: 100%; }
   #layout-header nav .mini-logo p {
-    margin: 5px;
+    margin: 10px;
     font-size: 1.4rem;
     font-weight: bold;
     width: 10%; }
@@ -40,9 +40,10 @@
     cursor: pointer;
     font-size: 20px; }
   #layout-header nav .auth-links {
-    width: 20%; }
+    width: 20%;
+    margin-top: 15px; }
     #layout-header nav .auth-links ul {
-      margin: 5% 5px;
+      margin: 5px;
       display: flex; }
       #layout-header nav .auth-links ul li {
         margin-right: 10px; }
