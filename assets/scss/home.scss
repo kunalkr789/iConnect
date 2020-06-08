@@ -12,7 +12,7 @@
     #user-details{
         width: 20%;
         padding: 10px;
-        margin-top: 20px;
+        margin-top: 25px;
     }
 
     #feed-posts{
@@ -21,7 +21,11 @@
         align-items: flex-start;
         scroll-snap-align: start;
         margin-top: 20px;
-    }
+
+            #new-post-form{
+                width: 90%;
+            }
+        }
 
     #user-friends{
         width: 20%;

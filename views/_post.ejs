@@ -8,7 +8,10 @@
         <%= post.content %>
         <br>
         <small>
+            <img src="<%= post.user.avatar %>" height="25" width="25">
             <%= post.user.name %>
+            <br>
+            <%= post.createdAt %>
         </small>
     </p>
     <div class="post-comments">

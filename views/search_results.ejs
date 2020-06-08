@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/search_results.css">
+
+<ul>
+    <% for (u of users){%>
+        <div class="search-result">
+                    <section class="users">
+                        <%if (u.avatar) {%>
+                            <a href="/users/profile/<%=u._id%>">
+                            <img href="/users/profile/<%=u._id%>" class="user-image" src='<%=u.avatar%>'>
+                            </a>
+                        <%} else {%>
+                            <a href="/users/profile/<%=u._id%>">
+                            <img href="/users/profile/<%=u._id%>" class="user-image" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png">
+                            </a>
+                        <%}%> 
+                    </section>  
+                
+                    <section class="user-details">
+                        <a href="/users/profile/<%=u._id%>">
+                        <h4 class='user-name'><%=u.name%></h4>
+                        </a>
+                        <h5><%=u.email%></h5>
+                    </section> 
+    </div>
+    <%}%>   
+ </ul>

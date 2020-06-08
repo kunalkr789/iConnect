@@ -31,6 +31,26 @@ module.exports.profile = async function(req, res){
     }
    
 }
+module.exports.search= async function(req,res)
+{ 
+    try{ 
+        let user = await User.find({name:req.query.name});
+
+        if(user)
+        {
+            return res.render('search_results', {
+                    title: 'Search Result',
+                    users: user
+            });
+        }else{
+            req.flash('error','user not found');
+            return res.redirect('/');
+        }
+    }catch(err)
+    {        
+        return res.redirect('back');
+    }
+}
 
 module.exports.update = async function(req, res){
    
