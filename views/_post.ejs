@@ -8,7 +8,11 @@
         <%= post.content %>
         <br>
         <small>
-            <img src="<%= post.user.avatar %>" height="25" width="25">
+            <% if(post.user.avatar) {%>
+                <img src="<%=post.user.avatar%>" class='img' height="25" width="25">
+            <% }else{%>
+                <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" class='img' height="25" width="25">
+            <%}%>
             <%= post.user.name %>
             <br>
             <%= post.createdAt %>

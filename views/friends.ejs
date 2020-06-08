@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/css/user_profile.css">
+<link rel="stylesheet" href="/css/home.css">
+
+<!-- <div id='freind'>
+    <div id='img'>
+       <img id='profile-pic'src="<%=profile_user.avatar%>" alt="<%=profile_user.name%>">
+    </div>
+        <div id='details'>
+      <p class='user-name'><%= profile_user.name %></p>
+  
+      <br>
+      <p class='bio'><%=profile_user.email%></p>
+      <button id="chatbutton">Chat</button>
+    </div>
+    <br>
+    <br>
+    <br>
+  <a href="/users/removefriend/?id=<%=id%>&type=<%=locals.user.id %>"><button class='UnFriend'>UnFriend</button></a>
+  
+  
+  
+</div> -->
+  
+
+
+<div id="home-container">
+    <section id="user-details">
+      <% if(profile_user.avatar) {%>
+        <img src="<%=profile_user.avatar%>" class='img' height="100" width="100">
+      <% }else{%>
+        <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" class='img' height="100" width="100">
+      <%}%>
+      <p><%= profile_user.name %></p>
+      <p><%= profile_user.email %></p>
+      <button id="chatbutton">Chat</button>
+      <a href="/users/removefriend/?id=<%=id%>&type=<%=locals.user.id %>"><button class='Unfriend'>UnFriend</button></a>
+    </section>
+    
+    <section id="feed-posts">
+        <h4>Posts</h4>
+                  
+        <div id="posts-list-container">
+            <ul>
+                <% for(post of posts){ %>
+                    <% if(profile_user.id == post.user.id){ %>  
+                <%- include('_post') -%>
+                <% } %>  
+                <%} %>
+            </ul>
+        </div>
+    </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js'></script>

@@ -20,7 +20,21 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String
-    }
+    },
+    request:
+    [ {
+        type:Object
+      }
+    ],
+    friendships: [
+          {
+             type:Object
+              
+              
+           
+          }
+        
+    ]
 }, {
     timestamps: true
 });

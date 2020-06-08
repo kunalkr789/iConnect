@@ -21,6 +21,27 @@
                         </a>
                         <h5><%=u.email%></h5>
                     </section> 
+                    <%let check%>
+                    <% for (f of locals.user.friendships){%>
+                       
+                        <%if(f._id==u.id){%>
+                            
+                            <%check=true%>
+                            <%break%>>
+                        <%}%>
+                    <%}%>
+
+                    <%if(check){%>
+                        <button class='usercard-button accept'>Connected</button>
+                    <%}else{%>
+
+                       
+                        <a href='/freind/add?id=<%=u._id%>&name=<%=user.id%>'>
+
+                        <button type='submit' id=''  class='usercard-button accept'>
+                        <i class='fa fa-user'></i>Add Friend</button></a>
+                       
+                    <%}%>
     </div>
     <%}%>   
  </ul>

@@ -15,7 +15,11 @@
             <section id="user-details">
                 <% if(locals.user){ %>
                     <p>
-                        <img src="<%= user.avatar  %>" alt="<%= user.name %>" width="100">
+                        <% if(user.avatar) {%>
+                            <img src="<%=user.avatar%>" class='img' height="100" width="100">
+                        <% }else{%>
+                            <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" class='img' height="100" width="100">
+                        <%}%>
                         <p><%= user.name %></p>
                         <p><%= user.email %></p>
                         <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
@@ -41,7 +45,9 @@
                 </div>
             </section>                       
             <section id="user-friends">
-                <h4>Friends</h4>
+                <%-include('_sidebar')-%>
+                <%-include('_friend_bar')-%>
+                <h4>Users:</h4>
                 <% for(u of all_users){%>
                     <p>
                         <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
