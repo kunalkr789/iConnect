@@ -40,13 +40,19 @@
     cursor: pointer;
     font-size: 20px; }
   #layout-header nav .auth-links {
-    width: 20%;
-    margin-top: 15px; }
+    width: 30%;
+    margin-top: 10px; }
     #layout-header nav .auth-links ul {
-      margin: 5px;
-      display: flex; }
+      margin: 0px;
+      display: flex;
+      align-content: flex-end;
+      list-style: none; }
       #layout-header nav .auth-links ul li {
-        margin-right: 10px; }
+        margin-right: 10px;
+        align-content: flex-end;
+        align-items: flex-end; }
+        #layout-header nav .auth-links ul li .text {
+          margin-top: 10px; }
   #layout-header nav a {
     color: white;
     text-decoration: none; }

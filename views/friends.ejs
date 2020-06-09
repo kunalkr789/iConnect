@@ -42,9 +42,10 @@
         <div id="posts-list-container">
             <ul>
                 <% for(post of posts){ %>
-                    <% if(profile_user.id == post.user.id){ %>  
-                <%- include('_post') -%>
-                <% } %>  
+                  <% if(profile_user.id == post.user.id){ %>  
+                    <%- include('_post') -%>
+                  <% } %>  
+                  <br>
                 <%} %>
             </ul>
         </div>

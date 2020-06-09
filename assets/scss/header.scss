@@ -51,14 +51,23 @@
           }
 
         .auth-links{
-            width: 20%;
-            margin-top: 15px;
+            width: 30%;
+            margin-top: 10px;
             ul{
-                margin:  5px;
+                margin:  0px;
                 display: flex;
+                align-content: flex-end;
+                list-style: none;
+
+                
 
                 li{
                     margin-right: 10px;
+                    align-content: flex-end;
+                    align-items: flex-end;
+                    .text{
+                        margin-top: 10px;
+                    }
                 }
             }
         }

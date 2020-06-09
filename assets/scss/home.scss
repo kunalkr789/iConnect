@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(228, 228, 235);
+}
+
 #home-container{
     flex: 1;
     display: flex;
@@ -13,6 +17,9 @@
         width: 20%;
         padding: 10px;
         margin-top: 25px;
+        .img{
+            margin-top: 25px;
+        }
     }
 
     #feed-posts{
@@ -25,6 +32,9 @@
             #new-post-form{
                 width: 90%;
             }
+            #posts-list-container{
+                width: 80%;
+            }
         }
 
     #user-friends{
@@ -33,5 +43,9 @@
         border-left: 1px solid;
         height: 100%;
         margin-top: 20px;
+    }
+    a{
+        text-decoration: none; 
+        color: blue;
     }
 }

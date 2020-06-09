@@ -7,7 +7,13 @@
     <!-- if user matches then show the form -->
     <div id="home-container">
         <section id="user-details">
-            <img src="<%= user.avatar  %>" alt="<%= user.name %>" width="100">
+            <% if(user.avatar) {%>
+                <img src="<%= user.avatar %>" class='img' height="100" width="100">
+            <% }else{%>
+                <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" class='img' height="100" width="100">
+            <%}%>
+            <br>
+            <br>
             <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
                 <input type="file" name="avatar" placeholder="Profile Picture">
                 <br>
@@ -31,8 +37,9 @@
                 <ul>
                     <% for(post of posts){ %>
                         <% if(profile_user.id == post.user.id){ %>  
-                    <%- include('_post') -%>
-                    <% } %>  
+                            <%- include('_post') -%>
+                        <% } %> 
+                        <br> 
                     <%} %>
                 </ul>
             </div>
@@ -72,8 +79,9 @@
                 <ul>
                     <% for(post of posts){ %>
                         <% if(profile_user.id == post.user.id){ %>  
-                    <%- include('_post') -%>
-                    <% } %>  
+                            <%- include('_post') -%>
+                        <% } %> 
+                        <br> 
                     <%} %>
                 </ul>
             </div>

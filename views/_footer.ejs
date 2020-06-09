@@ -6,13 +6,17 @@
     </div>
 
     <div>
+        
         <nav class="footer-nav">
             <ul>
                 <li>
                     <a href="/">Home</a> &nbsp;
-                    <a href="/users/profile">Profile</a>
+                    <% if (locals.user){ %>
+                    <a href="/users/profile/<%= user.id %>">Profile</a>
+                    <% } %>
                 </li>
             </ul>
         </nav>
+        
     </div>
 </footer>

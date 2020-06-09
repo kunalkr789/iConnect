@@ -1,14 +1,28 @@
+<% 
+    var comment_time= new Date(comment.updatedAt)
+    var today = new Date()
+%>
 <li>
-    <p>
+    <p> 
+        <%= comment.content %>
         <% if (locals.user && locals.user.id == comment.user.id){ %>
         <small>
-            <a href="/comments/destroy/<%= comment.id %>">X</a>
+            <a href="/comments/destroy/<%= comment.id %>">
+                <img src="https://image.flaticon.com/icons/svg/1828/1828843.svg" height="15" width="15" alt="delete post" >
+            </a>
         </small>
         <% } %>
-        <%= comment.content %>
         <br>
         <small>
-            <%= comment.user.name %>
+            <a href="/users/profile/<%= comment.user.id %>" style="text-decoration: none; color: blue;">
+                <%= comment.user.name %>
+            </a>
+            
+            (<% if (comment_time.toLocaleDateString() != today.toLocaleDateString()) {%>
+                <%=comment_time.toLocaleDateString('default', {weekday: 'short'})-%>, <%=comment_time.getDate()-%> <%=comment_time.toLocaleDateString('default', {month: 'short'})-%> <%=comment_time.getYear() + 1900-%>
+            <%} else {%>
+                <%=comment_time.toLocaleTimeString("en-US", {hour: '2-digit', minute:'2-digit'})-%>
+            <%}%>)
         </small>
     </p>    
 

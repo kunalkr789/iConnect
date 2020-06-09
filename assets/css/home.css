@@ -1,3 +1,6 @@
+body {
+  background-color: #e4e4eb; }
+
 #home-container {
   flex: 1;
   display: flex;
@@ -10,6 +13,8 @@
     width: 20%;
     padding: 10px;
     margin-top: 25px; }
+    #home-container #user-details .img {
+      margin-top: 25px; }
   #home-container #feed-posts {
     width: 60%;
     padding: 10px;
@@ -18,9 +23,14 @@
     margin-top: 20px; }
     #home-container #feed-posts #new-post-form {
       width: 90%; }
+    #home-container #feed-posts #posts-list-container {
+      width: 80%; }
   #home-container #user-friends {
     width: 20%;
     padding: 10px;
     border-left: 1px solid;
     height: 100%;
     margin-top: 20px; }
+  #home-container a {
+    text-decoration: none;
+    color: blue; }

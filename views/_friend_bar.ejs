@@ -1,12 +1,12 @@
 <div class="sidebar-container">
   <h4>Friends:</h4>
-    <ul>
+    <ul style="list-style: none;">
       <% for (freind of locals.user.friendships){%>
         <li class="item">
           <% if(freind.avatar) {%>
             <img src="<%=freind.avatar%>" class='img' height="30" width="30">
             <% }else{%>
-              <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" class='img' height="30" width="30">
+              <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" class='img' height="30" width="30">
               <%}%>
           <a href='/users/profile-freind/?id=<%=freind.id%>&type=<%=freind._id%>' class="black-text"> <%=freind.name%></a>
         </li>

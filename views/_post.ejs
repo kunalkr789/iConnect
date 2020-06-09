@@ -1,24 +1,37 @@
-<li id="post-<%= post._id %>">
-    <p>
-        <% if (locals.user && locals.user.id == post.user.id){ %>
-        <small>
-            <a class="delete-post-button"  href="/posts/destroy/<%= post.id %>">X</a>
-        </small>
-        <% } %>
-        <%= post.content %>
-        <br>
-        <small>
+<% 
+    var post_time= new Date(post.createdAt)
+    var today = new Date()
+%>
+<li id="post-<%= post._id %>" style="list-style: none; border: 1px solid black;">
+    <p style="text-align: justify; margin-left: 10px;">
+        <small>            
             <% if(post.user.avatar) {%>
-                <img src="<%=post.user.avatar%>" class='img' height="25" width="25">
+                <img src="<%=post.user.avatar%>" class='img' height="25" width="25" >
             <% }else{%>
                 <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" class='img' height="25" width="25">
             <%}%>
-            <%= post.user.name %>
-            <br>
-            <%= post.createdAt %>
+            <a href="/users/profile/<%= post.user.id %>" style="text-decoration: none; color: blue;">
+                <%= post.user.name %>
+            </a>
+            
+            (<% if (post_time.toLocaleDateString() != today.toLocaleDateString()) {%>
+                <%=post_time.toLocaleDateString('default', {weekday: 'short'})-%>, <%=post_time.getDate()-%> <%=post_time.toLocaleDateString('default', {month: 'short'})-%> <%=post_time.getYear() + 1900-%>
+            <%} else {%>
+                <%=post_time.toLocaleTimeString("en-US", {hour: '2-digit', minute:'2-digit'})-%>
+            <%}%>)
         </small>
+        <% if (locals.user && locals.user.id == post.user.id){ %>
+        <small>
+            <a class="delete-post-button"  href="/posts/destroy/<%= post.id %>"><img src="https://www.flaticon.com/premium-icon/icons/svg/2893/2893784.svg" height="20" width="20" alt="delete post" style="float: right; margin-right: 10px;"></a>
+        </small>
+        <% } %>
+        <p style="width: 80%; overflow-wrap:break-word; margin-left: 15px;">
+            <%= post.content %>
+        </p>
+        <br>
+        
     </p>
-    <div class="post-comments">
+    <div class="post-comments" style="margin-left: 20px;">
         <% if (locals.user){ %>
             <form action="/comments/create" method="POST">
                 <input type="text" name="content" placeholder="Type Here to add comment..." required>
@@ -39,5 +52,4 @@
             </ul>
         </div>
     </div>
-    
 </li>

@@ -19,12 +19,27 @@
     
         <div class="auth-links">
             <% if (locals.user){ %>
-                <div class="item">
-                    <a href='/users/profile/<%= user.id %>'><%= user.name %> </a>&nbsp;
-                    <a href='/users/chatbot'>Messenger </a>&nbsp;
-                    <a href="/users/sign-out">Sign Out</a>
+                <ul class="item">
+                    <li>
+                        <a href='/users/profile/<%= user.id %>'>
+                            <% if(user.avatar) {%>
+                                <img class='img' src="<%=user.avatar%>" style="height: 30; width: 30;">
+                            <% }else{%>
+                                <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" class='img' height="30" width="30">
+                            <%}%>
+                        </a>&nbsp;&nbsp;
+                    </li>
+                    <li style="margin-top: 5px;">
+                        <a href='/users/profile/<%= user.id %>' class="text"><%=user.name%></a>&nbsp;&nbsp;
+                    </li>
+                    <li style="margin-top: 5px;">
+                        <a href='/users/chatbot' class="text">Messenger</a>&nbsp;&nbsp;
+                    </li>
+                    <li style="margin-top: 5px;">
+                        <a href="/users/sign-out" class="text">Sign Out</a>
+                    </li>
                    
-                </div>
+                </ul>
             <% } %>
         </div>
     </nav>

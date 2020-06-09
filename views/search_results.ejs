@@ -2,6 +2,7 @@
 
 <ul>
     <% for (u of users){%>
+        <%if(locals.user.id!=u.id){%>
         <div class="search-result">
                     <section class="users">
                         <%if (u.avatar) {%>
@@ -42,6 +43,8 @@
                         <i class='fa fa-user'></i>Add Friend</button></a>
                        
                     <%}%>
+                    
     </div>
+    <%}%>
     <%}%>   
  </ul>

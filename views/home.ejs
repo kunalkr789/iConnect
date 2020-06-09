@@ -22,7 +22,7 @@
                         <%}%>
                         <p><%= user.name %></p>
                         <p><%= user.email %></p>
-                        <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
+                        <a href="/users/profile/<%= user.id %>" >Profile</a>
                     </p>
                 <% } %>
             </section>
@@ -36,11 +36,11 @@
                 <% } %>           
                 <div id="posts-list-container">
                     <ul>
-                        <% for(post of posts){ %>
-                            
-                        <%- include('_post') -%>
-                            
+                        <% for(post of posts){ %>                            
+                            <%- include('_post') -%>
+                            <br> 
                         <%} %>
+                        
                     </ul>
                 </div>
             </section>                       
