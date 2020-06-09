@@ -23,19 +23,39 @@ body{
     }
 
     #feed-posts{
-        width: 60%;
+        width: 70%;
         padding: 10px;
         align-items: flex-start;
         scroll-snap-align: start;
         margin-top: 20px;
+        height: 500px;
+        overflow: auto;
 
             #new-post-form{
                 width: 90%;
+                input[type="file"] {
+                    display: none;
+                    float: left;
+                }
+                .custom-file-upload {
+                    margin-left: 0px;
+                    cursor: pointer;
+                }
             }
             #posts-list-container{
                 width: 80%;
             }
+            
         }
+        #feed-posts {
+          
+            overflow-y: scroll;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE 10+ */
+          }
+          #feed-posts::-webkit-scrollbar { /* WebKit */
+            width: 0px;
+          }
 
     #user-friends{
         width: 20%;
