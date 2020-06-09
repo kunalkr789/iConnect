@@ -27,6 +27,10 @@
         <% } %>
         <p style="width: 80%; overflow-wrap:break-word; margin-left: 15px;">
             <%= post.content %>
+            <br>
+            <%if(post.Postimage) {%>
+                <img src="<%=post.Postimage%>" class="post-img" width="535" height="400">
+            <%}%>
         </p>
         <br>
         

@@ -32,6 +32,7 @@
                         </small>
                        
                         ${ post.content }
+                        ${ post.Postimage }
                         <br>
                         <small>
                         ${ post.user.name }
