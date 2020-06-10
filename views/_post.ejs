@@ -2,7 +2,7 @@
     var post_time= new Date(post.createdAt)
     var today = new Date()
 %>
-<li id="post-<%= post._id %>" style="list-style: none; border: 1px solid black;">
+<li id="post-<%= post._id %>" style="list-style: none; border: 1px solid rgb(252, 250, 250); background-color: rgb(231, 235, 199);">
     <p style="text-align: justify; margin-left: 10px;">
         <small>            
             <% if(post.user.avatar) {%>

@@ -8,7 +8,8 @@ body {
   scroll-snap-type: y mandatory; }
   #home-container #welcome-text {
     margin-top: 25px;
-    text-align: center; }
+    text-align: center;
+    align-content: center; }
   #home-container #user-details {
     width: 20%;
     padding: 10px;
