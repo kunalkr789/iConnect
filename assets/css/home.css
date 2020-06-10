@@ -22,7 +22,7 @@ body {
     align-items: flex-start;
     scroll-snap-align: start;
     margin-top: 20px;
-    height: 500px;
+    height: 550px;
     overflow: auto; }
     #home-container #feed-posts #new-post-form {
       width: 90%; }
