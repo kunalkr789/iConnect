@@ -67,8 +67,8 @@ module.exports.destroy = async function(req, res){
 
             comment.remove();
 
-            let post = Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
-            await Like.deleteMany({likeable: post, onModel: 'Comment'});
+            //let post = Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
+            //await Like.deleteMany({likeable: post, onModel: 'Comment'});
 
             // send the comment id which was deleted back to the views
             if (req.xhr){
@@ -76,7 +76,7 @@ module.exports.destroy = async function(req, res){
                     data: {
                         comment_id: req.params.id
                     },
-                    message: "Post deleted"
+                    message: "Comment deleted"
                 });
             }
 

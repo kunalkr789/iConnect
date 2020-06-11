@@ -68,7 +68,7 @@ module.exports.create= async function(req,res){
         if(req.xhr)
         {  // returning a json 
                 console.log("xhr request");
-            //populating only nameof user 
+            //populating only name of user 
             post = await posts.populate('user', 'name').execPopulate();
                 return res.status(200).json(
                     

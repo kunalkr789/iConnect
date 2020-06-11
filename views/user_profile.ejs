@@ -73,9 +73,9 @@
                 <%}%>            
             <%}%>
             <%if(check){%>
-                <p class='add' style='background-color:rgb(132, 134, 132); color: rgb(20, 20, 20); width: 50%;'>You and <%= profile_user.name %> are friends.</p>
+                <a href="/users/removefriend/?id=<%=id%>&type=<%=locals.user.id %>"><button class='Unfriend'>Unfriend</button></a>
             <%}else{%>
-                <a id='addfreind' class='add' href="/freind/add?id=<%=profile_user.id%>&name=<%=user.id%>">Add Freind</a>
+                <a id='addfreind' class='add' href="/freind/add?id=<%=profile_user.id%>&name=<%=user.id%>"><button> Add Freind</button> </a>
             <%}%>
         </section>
         
