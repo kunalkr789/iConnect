@@ -1,7 +1,9 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const Like = require('../models/like');
 const fs = require('fs');
 const path = require('path');
+
 
 // module.exports.create = async function(req, res){
 //     try{
@@ -57,7 +59,8 @@ module.exports.create= async function(req,res){
                     },function(err,post)
                     {
                         if(err){console.log(err);return;}
-                        console.log('succesfully added post',post);
+                        console.log('succesfully added post', post);
+                        console.log('file', postimages);
                         posts = post;
                     }
                 );
@@ -74,10 +77,10 @@ module.exports.create= async function(req,res){
                         {
                             post: post
                         },
-                        message:'post a-created'
+                        message:'Post created!'
                     });
             }
-                req.flash('success','Post is created');
+                req.flash('success','Post published!');
                     return res.redirect('back');
         } catch(err)
     {
@@ -126,39 +129,35 @@ module.exports.destroy= async function(req,res)
 {
      try
      {
-         let post=await Post.findById(req.params.id);
-         if(post.user==req.user.id)
-         {
+        let post=await Post.findById(req.params.id);
+        if(post.user==req.user.id){
                // CHANGE :: delete the associated likes for the post and all its comments' likes too
-                // await Like.deleteMany({likeable: post, onModel: 'Post'});
-                // await Like.deleteMany({_id: {$in: post.comment}});
-               if(post.Postimage){ fs.unlinkSync(path.join(__dirname,'..',post.Postimage));}
-                post.remove();
-                await  Comment.deleteMany({post:req.params.id});
+            await Like.deleteMany({likeable: post, onModel: 'Post'});
+            await Like.deleteMany({_id: {$in: post.comment}});
+            if(post.Postimage){ fs.unlinkSync(path.join(__dirname,'..',post.Postimage));}
+            post.remove();
+            await  Comment.deleteMany({post:req.params.id});
 
-                    if(req.xhr)
+            if(req.xhr){
+                return res.status(200).json(
                     {
-                        return res.status(200).json(
-                            {
-                                data:
-                                {
-                                    post_id:req.params.id,
-                                    
-                                },message:'post deleted'
-                            }
-                        );
+                        data:
+                        {
+                            post_id:req.params.id,
+                            
+                        },message:'post deleted'
                     }
-         req.flash('success', 'Post and associated comments deleted!');
+                );
+            }
+            req.flash('success', 'Post and associated comments deleted!');
 
-         return res.redirect('back');
+            return res.redirect('back');
             
         }
         else return res.redirect('back');
-    } catch(err)
-    {   
+    }catch(err) {   
         req.flash('error',err);
         console.log(err);
         return res.redirect('back');
     }
-
 }

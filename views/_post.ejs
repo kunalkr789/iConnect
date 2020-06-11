@@ -32,8 +32,12 @@
                 <img src="<%=post.Postimage%>" class="post-img" width="120%" height="80%">
             <%}%>
         </p>
-        <br>
-        
+        <small style="margin-left: 20;">
+            <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                <img src="https://cdn1.iconfinder.com/data/icons/business-sets/512/612398-like-512.png" alt="" width="25" height="25" style="margin-left: 0;">
+                <%= post.likes.length %>                
+            </a>
+        </small>   
     </p>
     <div class="post-comments" style="margin-left: 20px;">
         <% if (locals.user){ %>

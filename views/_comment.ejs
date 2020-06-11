@@ -4,25 +4,36 @@
 %>
 <li>
     <p> 
-        <%= comment.content %>
-        <% if (locals.user && locals.user.id == comment.user.id){ %>
         <small>
-            <a href="/comments/destroy/<%= comment.id %>">
-                <img src="https://image.flaticon.com/icons/svg/1828/1828843.svg" height="15" width="15" alt="delete post" >
-            </a>
-        </small>
-        <% } %>
-        <br>
-        <small>
-            <a href="/users/profile/<%= comment.user.id %>" style="text-decoration: none; color: blue;">
-                <%= comment.user.name %>
-            </a>
-            
+            <a href="/users/profile/<%= comment.user.id %>" style="text-decoration: none; color: blue; width: max-content;" >
+                <%= comment.user.name %> :
+            </a> 
+        </small>     
+            <%= comment.content %>
+            <% if (locals.user && locals.user.id == comment.user.id){ %>
+                <small>
+                    <a href="/comments/destroy/<%= comment.id %>">
+                        <img src="https://image.flaticon.com/icons/svg/1828/1828843.svg" height="15" width="15" alt="delete post" >
+                    </a>
+                </small>
+                <% } %>
+            <br>   
+        <small style="font-size: x-small;">   
             (<% if (comment_time.toLocaleDateString() != today.toLocaleDateString()) {%>
                 <%=comment_time.toLocaleDateString('default', {weekday: 'short'})-%>, <%=comment_time.getDate()-%> <%=comment_time.toLocaleDateString('default', {month: 'short'})-%> <%=comment_time.getYear() + 1900-%>
             <%} else {%>
                 <%=comment_time.toLocaleTimeString("en-US", {hour: '2-digit', minute:'2-digit'})-%>
             <%}%>)
+        </small>
+        
+        
+        <br>
+        
+        <small>
+            <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                <img src="https://cdn1.iconfinder.com/data/icons/business-sets/512/612398-like-512.png" alt="" width="25" height="25" style="margin-left: 0;">
+                <%= comment.likes.length %>                
+            </a>
         </small>
     </p>    
 
